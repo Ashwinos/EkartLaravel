@@ -26,12 +26,8 @@
 										</ul>
 									</li>
 									 <li>
-										<a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li><a href="#">EUR Euro</a></li>
-											<li><a href="#">GBP British Pound</a></li>
-											<li><a href="#">JPY Japanese Yen</a></li>
-										</ul>
+										<a href="{{route('dashboard')}}">Admin<i class="fas fa-chevron-down"></i></a>
+										
 									</li>
 								</ul>
 							</div>

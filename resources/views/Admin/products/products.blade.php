@@ -14,7 +14,7 @@
             </ol>
             <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-  Launch demo modal
+  Add Product
 </button>
 
 
@@ -106,6 +106,15 @@
         </button>
       </div>
       <div class="modal-body">
+      @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
       <form method="post" action="{{route('createproduct')}}">
         @csrf
@@ -123,9 +132,11 @@
   <label for="inputState">Category</label>
       <select name="category" id="inputState" class="form-control">
         <option selected>Choose...</option>
-        <option>...</option>
+        @foreach($categories as $category)
+        <option value="{{$category->name}}">{{$category->name}}</option>
+        @endforeach
       </select>
-  </div>
+  </div>  
   <div class="form-group">
     <label for="inputAddress2">Image</label>
     <input name="image" type="file" id="myFile" name="filename">
@@ -160,5 +171,17 @@
     </div>
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!-- Script to open modal if there are validation errors -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        @if ($errors->any())
+            $('#exampleModalLong').modal('show');
+        @endif
+    });
+</script>
     @endsection
     
