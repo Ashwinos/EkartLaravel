@@ -11,10 +11,11 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 //     return view('welcome');
 // });
  Route::get('/', [HomepageController::class, 'home']);
- Route::get('/admin/login', [AdminController::class, 'login']);
+ Route::get('/admin/login', [AdminController::class, 'login'])->name('login');
  Route::post('/admin/do-login', [AdminController::class, 'doLogin'])->name('dologin');
  Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
  Route::get('/admin/products', [ProductController::class, 'products'])->name('products');
  Route::post('/admin/product/create', [ProductController::class, 'create'])->name('createproduct');
- 
- 
+ Route::get('/admin/product/delete{id}', [ProductController::class, 'delete'])->name('deleteproduct');
+
+

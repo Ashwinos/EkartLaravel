@@ -5,92 +5,81 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Products</h1>
+            <h1 class="m-0">Products({{$products->total()}})</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
+          
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Products</li>
+              <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+          Add Product
+          </button></li>
+            
             </ol>
+            
+                
+          
+           
             <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-  Add Product
-</button>
+
 
 
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+    @if (@session()->has('message'))<p style="padding-left: 2%; padding-bottom:2%; color:red;" class="flashmessage"> <b>{{ session()->get('message')}} </b></p>@endif
     <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          
-        <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
 
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-10 py-3 bg-gray-50 dark:bg-gray-800">
+                    Product name
+                </th>
+                <th scope="col" class="px-10 py-3">
+                    Price
+                </th>
+                <th scope="col" class="px-10 py-3 bg-gray-50 dark:bg-gray-800">
+                    Status
+                </th>
+                <th scope="col" class="px-10 py-3">
+                    Favourite
+                </th>
+                <th scope="col" class="px-10  py-3">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          @foreach($products as $product)
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    {{ $product->name}}
+                </th>
+                <td class="px-6 py-4">
+                {{number_format($product->price,2)}}
+                </td>
+                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+               {{$product->status}}
+                </td>
+                <td class="px-6 py-4">
+                @if($product->is_favourite == 1) Yes @else No @endif
+                </td>
+                <td class="px-6 py-4">
+                <a class="btn btn-primary btn-sm" href="">Edit</a> 
+
+                <a class="btn btn-danger btn-sm" href="{{route('deleteproduct',encrypt($product->id))}}">Delete</a> 
+              
+              </td>
+                
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+{{$products->links()}}
+
     </div>
 
 
@@ -116,7 +105,7 @@
             </div>
         @endif
 
-      <form method="post" action="{{route('createproduct')}}">
+      <form method="post" action="{{route('createproduct')}}" enctype="multipart/form-data">
         @csrf
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -139,7 +128,7 @@
   </div>  
   <div class="form-group">
     <label for="inputAddress2">Image</label>
-    <input name="image" type="file" id="myFile" name="filename">
+    <input name="image" type="file" name="image" id="myFile" name="filename">
       
     </div>
   <div class="form-row">

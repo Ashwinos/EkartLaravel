@@ -491,7 +491,7 @@ section
 {
 	font-size: 36px;
 	font-weight: 500;
-	color: #0e8ce4;
+	color: #fe8d9f;
 }
 .header_search
 {
@@ -663,7 +663,7 @@ section
 }
 .custom_list li a:hover
 {
-	color: #0e8ce4;
+	color: #fe8d9f;
 }
 select
 {
@@ -698,7 +698,7 @@ select option
 	right: 0;
 	width: 50px;
 	height: 100%;
-	background: #0e8ce4;
+	background: #fe8d9f;
 	border: none;
 	outline: none;
 	cursor: pointer;
@@ -749,7 +749,7 @@ select option
 	right: -14px;
 	width: 23px;
 	height: 23px;
-	background: #0e8ce4;
+	background: #fe8d9f;
 	border-radius: 50%;
 	text-align: center;
 }

@@ -211,6 +211,7 @@
 >
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('js/dashboard3.js')}}"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>
  

@@ -26,7 +26,7 @@
 										</ul>
 									</li>
 									 <li>
-										<a href="{{route('dashboard')}}">Admin<i class="fas fa-chevron-down"></i></a>
+										<a href="{{route('login')}}">Admin<i class="fas fa-chevron-down"></i></a>
 										
 									</li>
 								</ul>
@@ -76,7 +76,7 @@
 												</ul>
 											</div>
 										</div>
-										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png" alt=""></button>
+										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png " style="padding-left:15px;" alt=""></button>
 									</form>
 								</div>
 							</div>
