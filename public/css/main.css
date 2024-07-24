@@ -95,7 +95,7 @@ h4{font-size: 18px;}
 h5{font-size: 14px;}
 h1, h2, h3, h4, h5, h6
 {
-	font-family: 'Rubik', sans-serif;
+	font-family: "Exo 2", sans-serif;
 	font-weight: 500;
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
@@ -477,6 +477,7 @@ section
 .logo_container
 {
 	height: 80px;
+	
 }
 .logo
 {
@@ -491,7 +492,7 @@ section
 {
 	font-size: 36px;
 	font-weight: 500;
-	color: #fe8d9f;
+	color: #67a145;
 }
 .header_search
 {
@@ -663,7 +664,7 @@ section
 }
 .custom_list li a:hover
 {
-	color: #fe8d9f;
+	color: #67a145;
 }
 select
 {
@@ -698,7 +699,7 @@ select option
 	right: 0;
 	width: 50px;
 	height: 100%;
-	background: #fe8d9f;
+	background: #67a145;
 	border: none;
 	outline: none;
 	cursor: pointer;
@@ -749,7 +750,7 @@ select option
 	right: -14px;
 	width: 23px;
 	height: 23px;
-	background: #fe8d9f;
+	background: #67a145;
 	border-radius: 50%;
 	text-align: center;
 }
