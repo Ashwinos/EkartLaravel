@@ -139,10 +139,10 @@
                         </div>
                         <div class="form-group">
                             <label for="inputState">Category</label>
-                            <select name="category" id="inputState" class="form-control">
+                            <select name="category_id" id="inputState" class="form-control">
                                 <option selected>Choose...</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>

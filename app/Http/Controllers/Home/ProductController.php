@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductCreateRequest;
 use App\Models\Category;
 use App\Models\Product;
-use Attribute;
+
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -28,14 +29,16 @@ class ProductController extends Controller
         if($request->hasFile('image')){
             $extension= $request->image->extension();
             $filename = Str::random(6)."_".time()."_product.".$extension;
-            $request->image->storeAs('images',$filename) ;
+            $request->image->storeAs('images',$filename);
         }
         $attribute['image'] = $filename;    
+        
         $product = Product::create($attribute);
 
         // Redirect back with a success message
         return redirect()->back()->with('message', 'Product created successfully.');
          }
+
     public function delete($id){
         $product= Product::find(decrypt($id));
         if( !empty($product->image)){
@@ -47,6 +50,7 @@ class ProductController extends Controller
         }
 
         public function edit($id){
+           
             
             $categories= Category::all();
            
@@ -54,9 +58,46 @@ class ProductController extends Controller
             return view('Admin.products.editproduct',compact('product','categories'));
             
         }
-        public function update($id){
-            $product= Product::all();
-            $categories= Category::all();
+        public function update(Request $request){
+            $attribute = $request->all(); 
+            
+            // $messages = [
+            //     'confirmation_mail.email' => ' Confirmation email is required.',
+            //     'marketing_notify.email' => 'The marketing email must be a valid email address.',
+            //     'reminder.digits' => 'The number must be 10 digits',
+            //     'second_call_delay.digits' => 'The second call delay number must be 10 digits',
+               
+            // ];
+    
+            $validator = Validator::make($request->all(), [ 
+    
+               
+                'name' => 'required|string|max:255',
+                'price' => 'required|numeric',
+                'category_id' => 'required',
+                'image' => 'nullable|max:255',
+                'is_favourite' => 'required',
+                'status' => 'required',
+    
+            ], );
+    
+            if (@$validator->fails()) {
+    
+                return redirect()->back()
+                    ->withErrors(@$validator)
+                    ->withInput();
+            }
+             $product=Product::find($request->product_id);
+             
+            
+            // if($request->hasFile('image')){
+
+            // }
+            $product->update($attribute);
+            return redirect()->route('products')->with('message','updated Successfully');
+            
+
+            
             
         }
 

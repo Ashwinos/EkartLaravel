@@ -1,17 +1,7 @@
-body {
-    background: #ff5f6d;
-    background: -webkit-linear-gradient(to right, #00001a, #00004d);
-    background: linear-gradient(to right, #00001a, #00004d);
-    min-height: 100vh;
-    font-family: 'Sanchez', serif;
-  }
+
   
-  #button-addon1 {
-    color: #ffc371;
-  }
-  
-  i {
-    color: #0000cc;
+   .list-inline i {
+    color: #67a145;
     font-size: 20px;}
   
   .form-control::placeholder {
@@ -31,10 +21,16 @@ body {
   
   p{
     font-family: 'Tajawal', sans-serif;
+    
   }
   
   .lead{
     font-family: 'Sanchez 200', serif;
+  }
+
+  #total h6 {
+    color:#67a145;
+    
   }
   
   

@@ -128,7 +128,7 @@
                 </div>
             </div>
             <a href="#"
-                class="block w-full py-1 text-center text-white bg-[#67a145]  rounded-b hover:bg-transparent hover:text-primary transition">Add
+                class="block w-full py-1 text-center text-white bg-[#67a145] border  rounded-b hover:bg-transparent hover:text-primary transition" >Add
                 to cart</a>
         </div>
         <div class="bg-white shadow rounded overflow-hidden group">
@@ -170,7 +170,7 @@
                 </div>
             </div>
             <a href="#"
-                class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add
+                class="block w-full py-1 text-center text-white  bg-[#67a145] border  rounded-b hover:bg-transparent hover:text-primary transition">Add
                 to cart</a>
         </div>
         <div class="bg-white shadow rounded overflow-hidden group">
@@ -212,7 +212,7 @@
                 </div>
             </div>
             <a href="#"
-                class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add
+                class="block w-full py-1 text-center text-white bg-[#67a145] border  rounded-b hover:bg-transparent hover:text-primary transition">Add
                 to cart</a>
         </div>
         <div class="bg-white shadow rounded overflow-hidden group">
@@ -254,7 +254,7 @@
                 </div>
             </div>
             <a href="#"
-                class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add
+                class="block w-full py-1 text-center text-white bg-[#67a145] border  rounded-b hover:bg-transparent hover:text-primary transition">Add
                 to cart</a>
         </div>
     </div>

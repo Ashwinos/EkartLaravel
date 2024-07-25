@@ -17,8 +17,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
  Route::get('/admin/products', [ProductController::class, 'products'])->name('products');
  Route::post('/admin/product/create', [ProductController::class, 'create'])->name('createproduct');
  Route::get('/admin/product/delete{id}', [ProductController::class, 'delete'])->name('deleteproduct');
- Route::get('/admin/product/edit{id}', [ProductController::class, 'edit'])->name('editproduct');
- Route::post('/admin/product/update', [ProductController::class, 'update'])->name('updateproduct');
+ Route::get('/admin/product/edit/{id}', [ProductController::class, 'edit'])->name('editproduct');
+ Route::POST('/admin/product/update', [ProductController::class, 'update'])->name('updateproduct');
 
 
 

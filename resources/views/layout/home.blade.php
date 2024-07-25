@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/product.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png" style="border-radius: 50%">
 
 

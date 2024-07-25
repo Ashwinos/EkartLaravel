@@ -23,13 +23,14 @@ class ProductCreateRequest extends FormRequest
     {
         return [
            
+            'product_id' => 'required',
 
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'category_id' => 'required|exists:categories,name',
+            'category_id' => 'required',
             'image' => 'nullable|max:255',
-            'is_favourite' => 'required|boolean',
-            'status' => 'required|boolean',
+            'is_favourite' => 'required',
+            'status' => 'required',
             
 
         ];
