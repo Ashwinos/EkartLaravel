@@ -44,7 +44,7 @@
             <div class="form-group">
                 <label for="inputAddress2">Image</label>
                 <input name="image" type="file" name="image" id="myFile" name="filename">
-                <img src="{{'/storage/images/'.$product->image}}">
+                <img src="{{ asset('product_images/' . $product->image) }}">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">

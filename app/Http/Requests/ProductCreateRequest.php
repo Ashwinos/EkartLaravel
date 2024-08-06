@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Requests;
@@ -23,7 +24,7 @@ class ProductCreateRequest extends FormRequest
     {
         return [
            
-            'product_id' => 'required',
+            
 
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',

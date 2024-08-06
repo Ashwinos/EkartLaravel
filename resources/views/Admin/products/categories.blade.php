@@ -1,16 +1,17 @@
 @extends('Admin.dashboard')
 @section('page')
+
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Products({{ $products->total() }})</h1>
+                    {{-- <h1 class="m-0">Products({{ $products->total() }})</h1> --}}
                 </div><!-- /.col -->
                 <div class="col-sm-6">
 
                     <ol class="breadcrumb float-sm-right">
                         <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                                Add Product
+                                Add Category
                             </button></li>
 
                     </ol>
@@ -37,55 +38,33 @@
                 <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-10 py-3 bg-gray-50 dark:bg-gray-800">
-                            Product name
+                           Category name
                         </th>
                         <th scope="col" class="px-10 py-3 bg-gray-50 dark:bg-gray-800">
-                            Image
+                             Image
                         </th>
-                        <th scope="col" class="px-10 py-3">
-                            Price
-                        </th>
-                        <th scope="col" class="px-10 py-3 bg-gray-50 dark:bg-gray-800">
-                            Status
-                        </th>
-                        <th scope="col" class="px-10 py-3">
-                            Favourite
-                        </th>
-                        <th scope="col" class="px-10  py-3">
-                            Actions
-                        </th>
+                        
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $product)
+                    @foreach ($categories as $category)
                         <tr class="border-b border-gray-200 dark:border-gray-700">
                             <th scope="row"
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                                {{ $product->name }} {{ $product->category }}
+                                {{ $category->name }} 
                             </th>
                             <td class="px-6 py-4">
-                                <img src="{{ asset('product_images/' . $product->image) }}"
+                                <img src=""
                                     style="height: 100px; width:100px;">
+                                
                             </td>
-                            <td class="px-6 py-4">
-                                {{ number_format($product->price, 2) }}
-                            </td>
-                            <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                                {{ $product->status }}
-                            </td>
-                            <td class="px-6 py-4">
-                                @if ($product->is_favourite == 1)
-                                    Yes
-                                @else
-                                    No
-                                @endif
-                            </td>
+                            
                             <td class="px-6 py-4">
                                 <a class="btn btn-primary btn-sm"
-                                    href="{{ route('editproduct', ['id' => $product->id]) }}">Edit</a>
+                                    href="">Edit</a>
 
                                 <a class="btn btn-danger btn-sm"
-                                    href="{{ route('deleteproduct', encrypt($product->id)) }}">Delete</a>
+                                    href="">Delete</a>
 
                             </td>
 
@@ -94,7 +73,7 @@
                 </tbody>
             </table>
         </div>
-        {{ $products->links() }}
+        
 
     </div>
 
@@ -136,15 +115,9 @@
                                     placeholder="Price">
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label for="inputState">Category</label>
-                            <select name="category_id" id="inputState" class="form-control">
-                                <option selected>Choose...</option>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
-                            </select>
+                            
                         </div>
                         <div class="form-group">
                             <label for="inputAddress2">Image</label>

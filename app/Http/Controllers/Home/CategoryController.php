@@ -12,9 +12,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
-class ProductController extends Controller
+class CategoryController extends Controller
 {
-    public function products(){
+    public function category(){
+        dd('sss');
         $categories= Category::all();
         $products=Product::latest()->paginate(12);
         // dd('fff');
